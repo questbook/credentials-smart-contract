@@ -1,0 +1,25 @@
+{
+  "name": "Credentials",
+  "version": "1.0.0",
+  "description": "Credentials for developers using their Git account and contributions to Open Source projects",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier --write contracts/**/*.sol",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Charles OkaforMbah and Madhavan Malolan",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0",
+    "truffle": "^5.1.44"
+  },
+  "devDependencies": {
+    "@codechecks/client": "^0.1.10",
+    "eth-gas-reporter": "^0.2.17",
+    "hardhat": "^2.9.4",
+    "prettier": "^2.1.1",
+    "prettier-plugin-solidity": "^1.0.0-alpha.57",
+    "standard": "^14.3.4",
+    "typescript": "^4.0.2"
+  }
+}
