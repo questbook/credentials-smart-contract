@@ -1,25 +1,23 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// When running the script with `npx hardhat run <script>` you'll find the Hardhat
-// Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
 
 async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
-
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
 
-  await greeter.deployed();
+  const CredentialEventFacet = await hre.ethers.getContractFactory("CredentialEventFacet");
+  const CommunicationFacet = await hre.ethers.getContractFactory("CommunicationFacet");
+  const GovernanceFacet = await hre.ethers.getContractFactory("GovernanceFacet");
+  const WorkFacet = await hre.ethers.getContractFactory("WorkFacet");
+  const credential = await CredentialEventFacet.deploy();
+  const communication = await CommunicationFacet.deploy(credential.address);
+  const governance = await GovernanceFacet.deploy(credential.address);
+  const work = await WorkFacet.deploy(credential.address);
 
-  console.log("Greeter deployed to:", greeter.address);
+  await credential.deployed();
+  await communication.deployed();
+  await governance.deployed();
+  await work.deployed();
+
+  console.log("Contracts Deployed: \n CredentialEvent:", credential.address, "\n Communication:", communication.address, "\n Governance:", governance.address, "\n Work:", work.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

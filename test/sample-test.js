@@ -1,7 +1,14 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("Greeter", function () {
+describe("Call a Function", function () {
+  let communication;
+
+  beforeEach(async function () {
+    // const communication = await ethers.getContractFactory("CredentialEventFacet");
+    communication = await ethers.getContractAt("CommunicationFacet", process.env.ORACLE_ADDRESS);
+
+  })
   it("Should return the new greeting once it's changed", async function () {
     const Greeter = await ethers.getContractFactory("Greeter");
     const greeter = await Greeter.deploy("Hello, world!");
@@ -16,4 +23,9 @@ describe("Greeter", function () {
 
     expect(await greeter.greet()).to.equal("Hola, mundo!");
   });
+
+  it("Should call a function from one of the contract", async ()=>{
+    const callFunction = await communication.postVibe("1", "python");
+    await callFunction.wait();
+  })
 });

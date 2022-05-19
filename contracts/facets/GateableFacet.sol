@@ -1,9 +1,10 @@
-//SPDX 
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 import "./CredentialEventFacet.sol";
 
 contract GateableFacet {
+
 
     address private CREDENTIAL_ORACLE;
     CredentialEventFacet public CREDENTIAL_EVENT;
@@ -22,8 +23,10 @@ modifier credentialCallback {
   _;
 }
 
-constructor(address _credentialOracle) {
-    CREDENTIAL_ORACLE = _credentialOracle;
+constructor(CredentialEventFacet _credentialOracle) {
+    CREDENTIAL_ORACLE = address(_credentialOracle);
+    CREDENTIAL_EVENT = _credentialOracle;
 }
+
 
 }

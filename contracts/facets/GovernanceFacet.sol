@@ -1,10 +1,12 @@
-pragma solidity 0.8.7;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
 import "./GateableFacet.sol";
 
 contract GovernanceFacet is GateableFacet {
-
-constructor(address _credentialOracle) GateableFacet(_credentialOracle) {
+string public name;
+string public list;
+constructor(CredentialEventFacet _credentialOracle) GateableFacet(_credentialOracle) {
 }
 
 function reviewApplication(string memory someParam, string memory _listId) has_credential(_listId) external {

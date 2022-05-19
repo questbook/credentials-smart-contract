@@ -5,12 +5,24 @@
   "main": "index.js",
   "scripts": {
     "prettier": "prettier --write contracts/**/*.sol",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Charles OkaforMbah and Madhavan Malolan",
   "license": "ISC",
   "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.6",
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@openzeppelin/contracts": "^4.6.0",
+    "axios": "^0.27.2",
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.1",
+    "ethereum-waffle": "^3.2.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "nodemon": "^2.0.16",
+    "solidity-coverage": "^0.7.21",
     "truffle": "^5.1.44"
   },
   "devDependencies": {

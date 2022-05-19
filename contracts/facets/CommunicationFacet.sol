@@ -1,18 +1,23 @@
-pragma solidity 0.8.7;
 
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./GateableFacet.sol";
 
 contract CommunicationFacet is Ownable, GateableFacet {
 
-constructor(address _credentialOracle) GateableFacet(_credentialOracle) {
+constructor(CredentialEventFacet _credentialOracle) GateableFacet(_credentialOracle) {
 }
+
+string public name;
+string public list;
 function setInboxPriceForCredential(string memory someParam) external {
 
 } 
 
 function postVibe(string memory someParam, string memory _listId) has_credential(_listId) external {
-
+  name = someParam;
+  list = _listId;
 }
 
 function postVibe_authorised(string memory someParam, bytes[] memory proof) credentialCallback external {
