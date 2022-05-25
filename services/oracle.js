@@ -18,7 +18,7 @@ let wallet = new ethers.Wallet(privateKey, provider);
 let contract = new ethers.Contract(oracleAddr, oracleContractAbi, wallet)
 
 contract.on("RequestCredentialsCallback", async (list_id, msg_sender, msg_data, event)=>{
-    // console.log(event)
+    console.log(event)
    
     let arrayPut = [];
      arrayPut = await abiCoder.decode(['string','string', 'string', 'int'], ethers.utils.hexDataSlice(msg_data, 4));
@@ -30,14 +30,14 @@ contract.on("RequestCredentialsCallback", async (list_id, msg_sender, msg_data, 
 
     const firstValue = ethers.utils.hexDataSlice(msg_data, 0,4);
     const secondValue = ethers.utils.hexDataSlice(msg_data, 32, 64);
-    // const functionName = interface.getFunction(firstValue).name;
+    const functionName = interface.getFunction(firstValue).name;
 
     const contractAddress = event.address;
     console.log('Contract>>', contractAddress);
 
     const dataParams = await abiCoder.decode([ 'string', 'string'], ethers.utils.hexDataSlice(msg_data, 4));
-    // const forAuthUsers = functionName+ "_authorized";
-    // const forUnAuthUsers = functionName + "_unauthorized";
+    const forAuthUsers = functionName+ "_authorized";
+    const forUnAuthUsers = functionName + "_unauthorized";
     const contractByteCode = event.data; 
     const CallFunction = new ethers.Contract(contractAddress, coomAbi);
 
