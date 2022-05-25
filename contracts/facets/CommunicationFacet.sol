@@ -9,15 +9,11 @@ contract CommunicationFacet is Ownable, GateableFacet {
 constructor(CredentialEventFacet _credentialOracle) GateableFacet(_credentialOracle) {
 }
 
-string public name;
-string public list;
 function setInboxPriceForCredential(string memory someParam) external {
 
 } 
 
-function postVibe(string memory someParam, string memory _listId) has_credential(_listId) external {
-  name = someParam;
-  list = _listId;
+function postVibe(string memory someParam, string memory _listId, string memory _testing) has_credential(_listId) external {
 }
 
 function postVibe_authorised(string memory someParam, bytes[] memory proof) credentialCallback external {

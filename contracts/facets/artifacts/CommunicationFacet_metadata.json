@@ -1,0 +1,343 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract CredentialEventFacet",
+						"name": "_credentialOracle",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "CREDENTIAL_EVENT",
+				"outputs": [
+					{
+						"internalType": "contract CredentialEventFacet",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_listId",
+						"type": "string"
+					}
+				],
+				"name": "downVoteVibe",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "proof",
+						"type": "bytes[]"
+					}
+				],
+				"name": "downVoteVibe_authorised",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					}
+				],
+				"name": "downVoteVibe_unauthorised",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_listId",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_testing",
+						"type": "string"
+					}
+				],
+				"name": "postVibe",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "proof",
+						"type": "bytes[]"
+					}
+				],
+				"name": "postVibe_authorised",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					}
+				],
+				"name": "postVibe_unauthorised",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					}
+				],
+				"name": "setInboxPriceForCredential",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "setUpVibePool",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "settleVibes",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_listId",
+						"type": "string"
+					}
+				],
+				"name": "upVoteVibe",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "proof",
+						"type": "bytes[]"
+					}
+				],
+				"name": "upVoteVibe_authorised",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "someParam",
+						"type": "string"
+					}
+				],
+				"name": "upVoteVibe_unauthorised",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"CommunicationFacet.sol": "CommunicationFacet"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0x24e0364e503a9bbde94c715d26573a76f14cd2a202d45f96f52134ab806b67b9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e12cbaa7378fd9b62280e4e1d164bedcb4399ce238f5f98fc0eefb7e50577981",
+				"dweb:/ipfs/QmXRoFGUgfsaRkoPT5bxNMtSayKTQ8GZATLPXf69HcRA51"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"CommunicationFacet.sol": {
+			"keccak256": "0xcbf87abf74f0ccdd94d1cceca8b4119025867a221c693bd0c73d2d08bbab5323",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3548bd8144fbc572e66eba9d92353a19d09364b1f109dddc03ef3383a44e4f9f",
+				"dweb:/ipfs/QmZhSqcEgbJLhVziPc2yh6RfshnsfNW9hRgW2XVU43wvjn"
+			]
+		},
+		"CredentialEventFacet.sol": {
+			"keccak256": "0xf496d1c58e9da066502a76de034412ac5723af85aa72aa13bf230b4f19c47f70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7ecd7b380615049db247a79c6daa1689c70d12d285a7e2ff54f9b64fe734a31c",
+				"dweb:/ipfs/QmWaoFv1NYsfRnP4VZjtp4WYe3rE9PK6CQGHqrA8hcTfQg"
+			]
+		},
+		"GateableFacet.sol": {
+			"keccak256": "0x0e01d5920c39e065e3ffd734d798dbe9e2627c693c62af4293bbd2d20f0d94b1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://df2d95d146bd0a4900db71e85b4310e0d2c21ad2d4cad91e94e9dc33c844000f",
+				"dweb:/ipfs/QmTAmpjyPBsXK3p8sGCJCK8d186cj23whH1mGNAtjC5e3p"
+			]
+		}
+	},
+	"version": 1
+}
