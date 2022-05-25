@@ -5,7 +5,7 @@ import "./GateableFacet.sol";
 
 contract WorkFacet is GateableFacet {
 
-constructor(address _credentialOracle) GateableFacet(_credentialOracle) {
+constructor(CredentialEventFacet _credentialOracle) GateableFacet(_credentialOracle) {
 }
 
 function acceptWorkStream(string memory someParam, string memory _listId) has_credential(_listId) external {

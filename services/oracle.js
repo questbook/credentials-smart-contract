@@ -2,13 +2,13 @@ require("dotenv").config();
 const {getUsersInList} = require("./usersApi");
 const { hre, ethers } = require("hardhat");
 const oracleAddr = process.env.ORACLE_ADDRESS;
-const provider = new ethers.providers.WebSocketProvider(process.env.NETWORK_RPC_URL);
+const provider = new ethers.providers.InfuraProvider("rinkeby", process.env.NETWORK_RPC_KEY);
 // const provider = new ethers.providers.getDefaultProvider('http://127.0.0.1:8545/');
 const fs = require("fs");
 const oracleContractAbi = JSON.parse(fs.readFileSync("./artifacts/contracts/facets/CredentialEventFacet.sol/CredentialEventFacet.json", "utf8"))["abi"];
-const coomAbi = JSON.parse(fs.readFileSync("./artifacts/contracts/facets/CommunicationFacet.sol/CommunicationFacet.json", "utf8"))["abi"];
+const commAbi = JSON.parse(fs.readFileSync("./artifacts/contracts/facets/CommunicationFacet.sol/CommunicationFacet.json", "utf8"))["abi"];
 const abiCoder = new ethers.utils.AbiCoder();
-const interface = new ethers.utils.Interface(coomAbi);
+const interface = new ethers.utils.Interface(commAbi);
 
 
 exports.oracle = async () =>{ 
@@ -18,7 +18,7 @@ let wallet = new ethers.Wallet(privateKey, provider);
 let contract = new ethers.Contract(oracleAddr, oracleContractAbi, wallet)
 
 contract.on("RequestCredentialsCallback", async (list_id, msg_sender, msg_data, event)=>{
-    console.log(event)
+    // console.log(event)
    
     let arrayPut = [];
      arrayPut = await abiCoder.decode(['string','string', 'string', 'int'], ethers.utils.hexDataSlice(msg_data, 4));
