@@ -13,5 +13,7 @@ const server = http.createServer((req, res) => {
 })
 
 server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`)
+  const addr = server.address();
+  const bind = typeof addr === "string" ? `pipe ${addr}` : `port ${addr.port}`;
+  console.log(`Server running on ${bind}`)
 })
