@@ -1,45 +1,32 @@
 require("dotenv").config();
 const {getUsersInList} = require("./usersApi");
-const { hre, ethers } = require("hardhat");
-const oracleAddr = process.env.ORACLE_ADDRESS;
-const provider = new ethers.providers.InfuraProvider("rinkeby", process.env.NETWORK_RPC_KEY);
-// const provider = new ethers.providers.getDefaultProvider('http://127.0.0.1:8545/');
-const fs = require("fs");
-const oracleContractAbi = JSON.parse(fs.readFileSync("./artifacts/contracts/facets/CredentialEventFacet.sol/CredentialEventFacet.json", "utf8"))["abi"];
-const commAbi = JSON.parse(fs.readFileSync("./artifacts/contracts/facets/CommunicationFacet.sol/CommunicationFacet.json", "utf8"))["abi"];
-const abiCoder = new ethers.utils.AbiCoder();
-const interface = new ethers.utils.Interface(commAbi);
+const { ethers } = require("hardhat");
+const {oracleContractAbi, communicationAbi, governanceAbi, workAbi} = require("./abis");
 
+const oracleAddr = process.env.ORACLE_ADDRESS;
+const provider = new ethers.providers.InfuraProvider("rinkeby", {projectId: process.env.NETWORK_RPC_ID, projectSecret: process.env.NETWORK_RPC_KEY});
+const abiCoder = new ethers.utils.AbiCoder();
+const interface = new ethers.utils.Interface(communicationAbi);
 
 exports.oracle = async () =>{ 
-
-let privateKey = process.env.PRIVATE_KEY;
-let wallet = new ethers.Wallet(privateKey, provider);
-let contract = new ethers.Contract(oracleAddr, oracleContractAbi, wallet)
+// let wallet = new ethers.Wallet(privateKey, provider);
+let contract = new ethers.Contract(oracleAddr, oracleContractAbi, provider)
 
 contract.on("RequestCredentialsCallback", async (list_id, msg_sender, msg_data, event)=>{
-    console.log(event)
    
+    const bytecode = await provider.getCode(oracleAddr);
     let arrayPut = [];
      arrayPut = await abiCoder.decode(['string','string', 'string', 'int'], ethers.utils.hexDataSlice(msg_data, 4));
-    console.log('w', arrayPut);
-    let funct = await arrayPut[3];
 
-    console.log('funct', funct.toString());
+    const getFuncName = ethers.utils.hexDataSlice(msg_data, 0,4);
+    const funcName = interface.getFunction(getFuncName).name;
 
+    const contractAddress = event;
 
-    const firstValue = ethers.utils.hexDataSlice(msg_data, 0,4);
-    const secondValue = ethers.utils.hexDataSlice(msg_data, 32, 64);
-    const functionName = interface.getFunction(firstValue).name;
-
-    const contractAddress = event.address;
-    console.log('Contract>>', contractAddress);
-
-    const dataParams = await abiCoder.decode([ 'string', 'string'], ethers.utils.hexDataSlice(msg_data, 4));
-    const forAuthUsers = functionName+ "_authorized";
-    const forUnAuthUsers = functionName + "_unauthorized";
-    const contractByteCode = event.data; 
-    const CallFunction = new ethers.Contract(contractAddress, coomAbi);
+    const forAuthUsers = funcName+ "_authorized";
+    const forUnAuthUsers = funcName + "_unauthorized";
+    // const contractByteCode = event.data; 
+    // const CallFunction = new ethers.Contract(contractAddress, coomAbi);
 
     const users = await getUsersInList(list_id);
     if(msg_sender in users){

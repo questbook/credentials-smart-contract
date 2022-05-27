@@ -284,7 +284,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"CommunicationFacet.sol": "CommunicationFacet"
+			"facets/CommunicationFacet.sol": "CommunicationFacet"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -314,7 +314,7 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"CommunicationFacet.sol": {
+		"facets/CommunicationFacet.sol": {
 			"keccak256": "0xcbf87abf74f0ccdd94d1cceca8b4119025867a221c693bd0c73d2d08bbab5323",
 			"license": "MIT",
 			"urls": [
@@ -322,7 +322,7 @@
 				"dweb:/ipfs/QmZhSqcEgbJLhVziPc2yh6RfshnsfNW9hRgW2XVU43wvjn"
 			]
 		},
-		"CredentialEventFacet.sol": {
+		"facets/CredentialEventFacet.sol": {
 			"keccak256": "0xf496d1c58e9da066502a76de034412ac5723af85aa72aa13bf230b4f19c47f70",
 			"license": "MIT",
 			"urls": [
@@ -330,7 +330,7 @@
 				"dweb:/ipfs/QmWaoFv1NYsfRnP4VZjtp4WYe3rE9PK6CQGHqrA8hcTfQg"
 			]
 		},
-		"GateableFacet.sol": {
+		"facets/GateableFacet.sol": {
 			"keccak256": "0x0e01d5920c39e065e3ffd734d798dbe9e2627c693c62af4293bbd2d20f0d94b1",
 			"license": "MIT",
 			"urls": [
