@@ -1,14 +1,16 @@
 require("dotenv").config();
+const express = require("express");
+const app = express();
 const http = require('http')
-const { oracle } = require("./services/oracle");
-oracle();
+const oracle  = require("./services/oracle.js");
 
 const port = process.env.PORT;
 
-const server = http.createServer((req, res) => {
+const server = http.createServer( async (req, res) => {
   res.statusCode = 200
   res.setHeader('Content-Type', 'text/plain')
-  res.end('Welcome to Credential Oracle\n')
+  res.end('Welcome to Credential Oracle\n' + await oracle.oracle());
+  
 })
 
 server.listen(port, () => {
