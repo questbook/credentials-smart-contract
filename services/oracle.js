@@ -6,37 +6,30 @@ const {oracleContractAbi, communicationAbi, governanceAbi, workAbi} = require(".
 const oracleAddr = process.env.ORACLE_ADDRESS;
 const provider = new ethers.providers.InfuraProvider("rinkeby", {projectId: process.env.NETWORK_RPC_ID, projectSecret: process.env.NETWORK_RPC_KEY});
 const abiCoder = new ethers.utils.AbiCoder();
-const interface = new ethers.utils.Interface(communicationAbi);
+// let wallet = new ethers.Wallet(privateKey, provider);
+const contract = new ethers.Contract(oracleAddr, oracleContractAbi, provider);
+
+let paramArray = [];
 
 exports.oracle = async () =>{ 
-// let wallet = new ethers.Wallet(privateKey, provider);
-let contract = new ethers.Contract(oracleAddr, oracleContractAbi, provider)
 
-contract.on("RequestCredentialsCallback", async (list_id, msg_sender, msg_data, event)=>{
+contract.on("RequestCredentialsCallback", async (list_id, msg_sender, contractAddress, funcName, msg_data)=>{
    
-    const bytecode = await provider.getCode(oracleAddr);
-    let arrayPut = [];
-     arrayPut = await abiCoder.decode(['string','string', 'string', 'int'], ethers.utils.hexDataSlice(msg_data, 4));
-
-    const getFuncName = ethers.utils.hexDataSlice(msg_data, 0,4);
-    const funcName = interface.getFunction(getFuncName).name;
-
-    const contractAddress = event;
+    const bytecode = await provider.getCode(contractAddress);
+    paramArray = await abiCoder.decode(['string','string'], ethers.utils.hexDataSlice(msg_data, 4));
 
     const forAuthUsers = funcName+ "_authorized";
     const forUnAuthUsers = funcName + "_unauthorized";
-    // const contractByteCode = event.data; 
-    // const CallFunction = new ethers.Contract(contractAddress, coomAbi);
+    const callFunction = new ethers.Contract(contractAddress, bytecode);
 
     const users = await getUsersInList(list_id);
     if(msg_sender in users){
-        console.log('User is authorized')
-    //   const CallFunction = new ethers.Contract(contractAddress, coomAbi);
+        alert('User is authorized \n','Function Name:', forAuthUsers,'\n Contract Address:', contractAddress,'\n Data:', paramArray);
     //   const proof = []; //we'll create proofs later
-    //   await C[forAuthUsers](params, proof); // need to use a signer for this
+    //   await callFunction.forAuthUsers(params, proof); // need to use a signer for this
     }else{
-        // await C[forUnAuthUsers];
-        console.log('User is unauthorized')
+        alert('User is unauthorized \n','Function Name:', forAuthUsers,'\n Contract Address:', contractAddress)
+        // await callFunction.forUnAuthUsers(params);
     }
 
   });

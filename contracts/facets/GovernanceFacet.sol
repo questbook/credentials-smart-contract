@@ -4,12 +4,10 @@ pragma solidity ^0.8.7;
 import "./GateableFacet.sol";
 
 contract GovernanceFacet is GateableFacet {
-string public name;
-string public list;
 constructor(CredentialEventFacet _credentialOracle) GateableFacet(_credentialOracle) {
 }
 
-function reviewApplication(string memory someParam, string memory _listId) has_credential(_listId) external {
+function reviewApplication(string memory someParam, string memory _listId)  has_credential(_listId, address(this), 'reviewApplication') external {
 
 }
 
@@ -21,7 +19,7 @@ function reviewApplication_unauthorised(string memory someParam) credentialCallb
   //unauthenticated logic ...
 } 
 
-function raiseNoConfidenceMotion(string memory someParam, string memory _listId) has_credential(_listId) external {
+function raiseNoConfidenceMotion(string memory someParam, string memory _listId)  has_credential(_listId, address(this), 'raiseNoConfidenceMotion') external {
 
 }
 

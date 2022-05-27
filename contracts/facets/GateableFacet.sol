@@ -11,8 +11,8 @@ contract GateableFacet {
 
 
 // this modifier can be used by functions that want to give access to users only if they have a certain credential
-modifier has_credential(string memory list_id, address contractAddr) {
-	CREDENTIAL_EVENT.emitEvent(list_id, msg.sender, contractAddr, msg.data);
+modifier has_credential(string memory _list_id, address _contractAddr, string memory _funcName) {
+	CREDENTIAL_EVENT.emitEvent(_list_id, msg.sender, _contractAddr, _funcName, msg.data);
     _;
 }
 

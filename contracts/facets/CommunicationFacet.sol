@@ -12,7 +12,7 @@ function setInboxPriceForCredential(string memory someParam) external {
 
 } 
 
-function postVibe(string memory someParam, string memory _listId, string memory _testing) has_credential(_listId, address(this)) external {
+function postVibe(string memory someParam, string memory _listId) has_credential(_listId, address(this), 'postVibe') external {
 }
 
 function postVibe_authorised(string memory someParam, bytes[] memory proof) credentialCallback external {
@@ -23,7 +23,7 @@ function postVibe_unauthorised(string memory someParam) credentialCallback exter
   //unauthenticated logic ...
 } 
 
-function upVoteVibe(string memory someParam, string memory _listId) has_credential(_listId, address(this)) external {
+function upVoteVibe(string memory someParam, string memory _listId) has_credential(_listId, address(this), 'upVoteVibe') external {
 
 }
 
@@ -35,7 +35,7 @@ function upVoteVibe_unauthorised(string memory someParam) credentialCallback ext
   //unauthenticated logic ...
 } 
 
-function downVoteVibe(string memory someParam, string memory _listId) has_credential(_listId, address(this)) external {
+function downVoteVibe(string memory someParam, string memory _listId) has_credential(_listId, address(this), 'upVoteVibe') external {
 
 }
 
