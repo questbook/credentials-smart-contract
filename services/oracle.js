@@ -22,7 +22,8 @@ contract.on("RequestCredentialsCallback", async (list_id, msg_sender, contractAd
     // const callFunction = new ethers.Contract(contractAddress, bytecode, provider);
 
     const users = await getUsersInList(paramArray[1]);
-    const findUser = users.find(user => user.username === paramArray[0]);
+  
+    const findUser = users.filter(user => user.username === paramArray[0]);
     if(findUser){
         response = 'User is authorized \n  Function Name: '+forUnAuthUsers+' \n Contract Address: '+contractAddress+'\n List_id -'+ paramArray[1]+'\n Param -'+ paramArray[0] ;
     //   const proof = []; //we'll create proofs later
@@ -36,3 +37,32 @@ contract.on("RequestCredentialsCallback", async (list_id, msg_sender, contractAd
   });
   return response;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                    
