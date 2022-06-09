@@ -8,7 +8,7 @@ contract WorkFacet is GateableFacet {
 constructor(CredentialEventFacet _credentialOracle) GateableFacet(_credentialOracle) {
 }
 
-function acceptWorkStream(string memory someParam, string memory _listId)  has_credential(_listId, address(this), 'acceptWorkStream') external {
+function acceptWorkStream(string memory someParam, string memory _listId)  has_credential(address(this)) external {
 
 }
 

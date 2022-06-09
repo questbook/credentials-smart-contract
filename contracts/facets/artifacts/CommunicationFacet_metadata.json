@@ -49,55 +49,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "someParam",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_listId",
-						"type": "string"
-					}
-				],
-				"name": "downVoteVibe",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "someParam",
-						"type": "string"
-					},
-					{
-						"internalType": "bytes[]",
-						"name": "proof",
-						"type": "bytes[]"
-					}
-				],
-				"name": "downVoteVibe_authorised",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "someParam",
-						"type": "string"
-					}
-				],
-				"name": "downVoteVibe_unauthorised",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "owner",
 				"outputs": [
@@ -124,8 +75,18 @@
 					},
 					{
 						"internalType": "string",
-						"name": "_testing",
+						"name": "thirdparam",
 						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "num",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32[]",
+						"name": "_good",
+						"type": "uint32[]"
 					}
 				],
 				"name": "postVibe",
@@ -174,88 +135,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "someParam",
-						"type": "string"
-					}
-				],
-				"name": "setInboxPriceForCredential",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "setUpVibePool",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "settleVibes",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
 						"name": "newOwner",
 						"type": "address"
 					}
 				],
 				"name": "transferOwnership",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "someParam",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_listId",
-						"type": "string"
-					}
-				],
-				"name": "upVoteVibe",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "someParam",
-						"type": "string"
-					},
-					{
-						"internalType": "bytes[]",
-						"name": "proof",
-						"type": "bytes[]"
-					}
-				],
-				"name": "upVoteVibe_authorised",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "someParam",
-						"type": "string"
-					}
-				],
-				"name": "upVoteVibe_unauthorised",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -315,27 +200,27 @@
 			]
 		},
 		"facets/CommunicationFacet.sol": {
-			"keccak256": "0xcbf87abf74f0ccdd94d1cceca8b4119025867a221c693bd0c73d2d08bbab5323",
+			"keccak256": "0x56348595de24eda7003e1e0a552301fb758c00de1017477a981798e58b02e42b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3548bd8144fbc572e66eba9d92353a19d09364b1f109dddc03ef3383a44e4f9f",
-				"dweb:/ipfs/QmZhSqcEgbJLhVziPc2yh6RfshnsfNW9hRgW2XVU43wvjn"
+				"bzz-raw://aeaef9cc1f68d6367ca7996ab6cdc3c8d24a5000da027d42fa8361f2dd4daa1f",
+				"dweb:/ipfs/QmUdd6RacW9P4iYmArUyvoDXdroyySB5RDE9skDb3Y7hk2"
 			]
 		},
 		"facets/CredentialEventFacet.sol": {
-			"keccak256": "0xf496d1c58e9da066502a76de034412ac5723af85aa72aa13bf230b4f19c47f70",
+			"keccak256": "0xc1c7e6ad94a56381e115bfdfff39e00ae4e67de8eb850f0d4b7dfbe574a28d6a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7ecd7b380615049db247a79c6daa1689c70d12d285a7e2ff54f9b64fe734a31c",
-				"dweb:/ipfs/QmWaoFv1NYsfRnP4VZjtp4WYe3rE9PK6CQGHqrA8hcTfQg"
+				"bzz-raw://56d80a5600f8da698aefd1190c5ace5413551b728407a218e6cd707b196bc310",
+				"dweb:/ipfs/QmaxFKmwx5UrAMjXhu7aRu6BMt69JvuFnTD3KbvHG9jFyU"
 			]
 		},
 		"facets/GateableFacet.sol": {
-			"keccak256": "0x0e01d5920c39e065e3ffd734d798dbe9e2627c693c62af4293bbd2d20f0d94b1",
+			"keccak256": "0xc6387a916f10bb65d84177ccf40fe6b5ba83a2e5a0a9a2b3be9c28d54fbc640f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://df2d95d146bd0a4900db71e85b4310e0d2c21ad2d4cad91e94e9dc33c844000f",
-				"dweb:/ipfs/QmTAmpjyPBsXK3p8sGCJCK8d186cj23whH1mGNAtjC5e3p"
+				"bzz-raw://03435e98304e5ec172fe328202a51aaab2024ca9cb8b204da641a546b3c41358",
+				"dweb:/ipfs/QmUdx947ktyFCBLMZZPrfBE6AzMA3xjmkwooV1f65po9WT"
 			]
 		}
 	},

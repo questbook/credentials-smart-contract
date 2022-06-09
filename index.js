@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 const http = require('http')
 const oracle  = require("./services/oracle.js");
-
 const port = process.env.PORT;
 
 const server = http.createServer( async (req, res) => {

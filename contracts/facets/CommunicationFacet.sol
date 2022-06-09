@@ -8,11 +8,7 @@ contract CommunicationFacet is Ownable, GateableFacet {
 constructor(CredentialEventFacet _credentialOracle) GateableFacet(_credentialOracle) {
 }
 
-function setInboxPriceForCredential(string memory someParam) external {
-
-} 
-
-function postVibe(string memory someParam, string memory _listId) has_credential(_listId, address(this), 'postVibe') external {
+function postVibe(string memory someParam, string memory _listId, string memory thirdparam, uint256 num, uint32[] memory _good) has_credential(address(this)) external {
 }
 
 function postVibe_authorised(string memory someParam, bytes[] memory proof) credentialCallback external {
@@ -21,34 +17,6 @@ function postVibe_authorised(string memory someParam, bytes[] memory proof) cred
 
 function postVibe_unauthorised(string memory someParam) credentialCallback external {
   //unauthenticated logic ...
-} 
-
-function upVoteVibe(string memory someParam, string memory _listId) has_credential(_listId, address(this), 'upVoteVibe') external {
-
 }
-
-function upVoteVibe_authorised(string memory someParam, bytes[] memory proof) credentialCallback external {
-  //authenticated logic...
-}
-
-function upVoteVibe_unauthorised(string memory someParam) credentialCallback external {
-  //unauthenticated logic ...
-} 
-
-function downVoteVibe(string memory someParam, string memory _listId) has_credential(_listId, address(this), 'upVoteVibe') external {
-
-}
-
-function downVoteVibe_authorised(string memory someParam, bytes[] memory proof) credentialCallback external {
-  //authenticated logic...
-}
-
-function downVoteVibe_unauthorised(string memory someParam) credentialCallback external {
-  //unauthenticated logic ...
-} 
-
-function settleVibes() external onlyOwner {}
-
-function setUpVibePool() external {}
 
 }

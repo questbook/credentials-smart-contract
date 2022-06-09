@@ -7,7 +7,7 @@ contract GovernanceFacet is GateableFacet {
 constructor(CredentialEventFacet _credentialOracle) GateableFacet(_credentialOracle) {
 }
 
-function reviewApplication(string memory someParam, string memory _listId)  has_credential(_listId, address(this), 'reviewApplication') external {
+function reviewApplication(string memory someParam, string memory _listId)  has_credential(address(this)) external {
 
 }
 
@@ -19,7 +19,7 @@ function reviewApplication_unauthorised(string memory someParam) credentialCallb
   //unauthenticated logic ...
 } 
 
-function raiseNoConfidenceMotion(string memory someParam, string memory _listId)  has_credential(_listId, address(this), 'raiseNoConfidenceMotion') external {
+function raiseNoConfidenceMotion(string memory someParam, string memory _listId)  has_credential(address(this)) external {
 
 }
 
